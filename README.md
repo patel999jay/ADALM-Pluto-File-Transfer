@@ -19,15 +19,15 @@ Steps to perform :
        
  You should have something like this in your command prompt:
  
- <img src="cmd.PNG">
+ <img src="Images/cmd.PNG">
        
 2. If you found your pluto successfully, Go ahead and open GNU Radio on your computer and open FileTxRx.grc and run the file.(Assuming you know how to run the file in GNU Radio, If not please look for Play arrow in the GNU Radio or press F5).
 
-<img src="FileTxRx.PNG">
+<img src="Images/FileTxRx.PNG">
 
 3. You may have to provide text file path again in GNU Radio in File Source and File Sink Block. You can use any text file for transmission. You can use the same text file from here - transmissionfile.txt (Please put this file on desktop and browse the same from File source block.)
 
- <img src="filesourceblock.PNG">
+ <img src="Images/filesourceblock.PNG">
 
 4. Open transmissionfile.txt and review the contents in the file.
 
@@ -35,7 +35,7 @@ Steps to perform :
 
 6. While transmission, you can also see the Python based WX GUI For FFT TX and FFT Rx.
 
-<img src="GUI-TxRx.PNG">
+<img src="Images/GUI-TxRx.PNG">
 
 If you come across an error on GNU Radio saying that RuntimeError: Unable to set BB rate, Please make sure you provide correct sampling rate in PlutoSDR blocks in GNU Radio. If you don't know how to find out correct sampling rate, Please perform following command on your command prompt and it will give you exact sampling rate.
 
@@ -43,10 +43,10 @@ If you come across an error on GNU Radio saying that RuntimeError: Unable to set
         
  You should have something like this in your command prompt:
  
- <img src="cmd1.PNG">
+ <img src="Images/cmd1.PNG">
         
 P.S. If you have more than one sampling rate, try each one and see what is the difference.
 
- <img src="PlutoSink.PNG"><img src="PlutoSource.PNG">
+ <img src="Images/PlutoSink.PNG"><img src="Images/PlutoSource.PNG">
 
 
