@@ -33,6 +33,10 @@ Steps to perform :
 
 5. Make new text file on your desktop and name whatever you want but make sure you have same file extension. (you can also use file here name receivedfile.txt, This may have data in it, Please go aheah and delete all data from file and save that file again, Make it blank so you can see after transmission what data did you receive from Pluto).
 
+6. While transmission, you can also see the Python based WX GUI For FFT TX and FFT Rx.
+
+<img src="GUI-TxRx.PNG">
+
 If you come across an error on GNU Radio saying that RuntimeError: Unable to set BB rate, Please make sure you provide correct sampling rate in PlutoSDR blocks in GNU Radio. If you don't know how to find out correct sampling rate, Please perform following command on your command prompt and it will give you exact sampling rate.
 
         iio_attr -u <uri> -c cf-ad9361-lpc voltage0 sampling_frequency_available
