@@ -19,6 +19,8 @@ Steps to perform :
        
 2. If you found your pluto successfully, Go ahead and open GNU Radio on your computer and open FileTxRx.grc and run the file.(Assuming you know how to run the file in GNU Radio, If not please look for Play arrow in the GNU Radio or press F5).
 
+<img src="FileTxRx.PNG">
+
 3. You may have to provide text file path again in GNU Radio in File Source and File Sink Block. You can use any text file for transmission. You can use the same text file from here - transmissionfile.txt (Please put this file on desktop and browse the same from File source block.)
 
 4. Open transmissionfile.txt and review the contents in the file.
