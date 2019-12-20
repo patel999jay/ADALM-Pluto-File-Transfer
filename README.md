@@ -43,6 +43,6 @@ If you come across an error on GNU Radio saying that RuntimeError: Unable to set
         
 P.S. If you have more than one sampling rate, try each one and see what is the difference.
 
- <img src="PlutoSink.PNG">
+ <img src="PlutoSink.PNG"><img src="PlutoSource.PNG">
 
 
