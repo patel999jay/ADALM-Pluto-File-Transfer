@@ -17,11 +17,17 @@ Steps to perform :
 
        iio_info -s
        
+ You should have something like this in your command prompt:
+ 
+ <img src="cmd.PNG">
+       
 2. If you found your pluto successfully, Go ahead and open GNU Radio on your computer and open FileTxRx.grc and run the file.(Assuming you know how to run the file in GNU Radio, If not please look for Play arrow in the GNU Radio or press F5).
 
 <img src="FileTxRx.PNG">
 
 3. You may have to provide text file path again in GNU Radio in File Source and File Sink Block. You can use any text file for transmission. You can use the same text file from here - transmissionfile.txt (Please put this file on desktop and browse the same from File source block.)
+
+ <img src="filesourceblock.PNG">
 
 4. Open transmissionfile.txt and review the contents in the file.
 
@@ -30,6 +36,10 @@ Steps to perform :
 If you come across an error on GNU Radio saying that RuntimeError: Unable to set BB rate, Please make sure you provide correct sampling rate in PlutoSDR blocks in GNU Radio. If you don't know how to find out correct sampling rate, Please perform following command on your command prompt and it will give you exact sampling rate.
 
         iio_attr -u <uri> -c cf-ad9361-lpc voltage0 sampling_frequency_available
+        
+ You should have something like this in your command prompt:
+ 
+  <img src="cmd1.PNG">
         
 P.S. If you have more than one sampling rate, try each one and see what is the difference.
 
