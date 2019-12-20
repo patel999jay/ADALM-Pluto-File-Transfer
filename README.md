@@ -39,10 +39,10 @@ If you come across an error on GNU Radio saying that RuntimeError: Unable to set
         
  You should have something like this in your command prompt:
  
-  <img src="cmd1.PNG">
+ <img src="cmd1.PNG">
         
 P.S. If you have more than one sampling rate, try each one and see what is the difference.
 
-
+ <img src="PlutoSink.PNG">
 
 
