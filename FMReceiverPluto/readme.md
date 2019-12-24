@@ -1,6 +1,14 @@
-FM Receiver with Pluto
+# FM Receiver with Pluto
 
-Author : Jay Patel
+Author : Jay Patel , Dalhousie University, NS, Canada.
+
+Software Requirement :
+
+      1. GNU Radio software with IIO_Support (win_64) - (https://wiki.analog.com/resources/tools-software/linux-software/gnuradio_windows) 
+      
+    Hardware :
+      
+      1. ADM-Pluto SDR Active Learning Module
 
 This is real time FM Receiver with Pluto SDR. 
 
