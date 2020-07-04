@@ -20,7 +20,17 @@ This is real time FM Receiver with Pluto SDR.
 
 2. Run the file or press F5. It will open the real time FM station (in my case i configure to receive 100.1 MHz station, Halifax, NS, Canada). You can see real time waterfall of FM Station and also can hear the sound too. If you have problem with audio change sampling rate accordingly. 
 
+**Frequency Display**
  <img src="images/Freq_Display.png">
+ 
+ **Time Domain Display**
+ <img src="images/TimeDomain.png">
+ 
+ **Waterfall Display**
+ <img src="images/Waterfall_freq_Disp.png">
+ 
+ **Constellation Display**
+ <img src="images/Constellation.png">
 
 **This version is tested for GNURadio 3.7**
 ----------------------------------------------
