@@ -1,0 +1,317 @@
+options:
+  parameters:
+    author: Jay
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: PlutoOFDM
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: PlutoOFDM
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: PlutoOFDM
+    window_size: ''
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: cp_len
+  id: variable
+  parameters:
+    comment: ''
+    value: '16'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [472, 12.0]
+    rotation: 0
+    state: true
+- name: fft_len
+  id: variable
+  parameters:
+    comment: ''
+    value: '128'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [280, 12.0]
+    rotation: 0
+    state: enabled
+- name: ncarrier
+  id: variable
+  parameters:
+    comment: ''
+    value: '32'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [376, 12.0]
+    rotation: 0
+    state: true
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '30720000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [184, 12]
+    rotation: 0
+    state: enabled
+- name: blocks_repack_bits_bb_0
+  id: blocks_repack_bits_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    align_output: 'False'
+    comment: ''
+    endianness: gr.GR_LSB_FIRST
+    k: '1'
+    l: '2'
+    len_tag_key: '""'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [184, 140.0]
+    rotation: 0
+    state: true
+- name: blocks_stream_to_tagged_stream_0
+  id: blocks_stream_to_tagged_stream
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    len_tag_key: '"packet_len"'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    packet_len: ncarrier
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [400, 228.0]
+    rotation: 180
+    state: true
+- name: digital_chunks_to_symbols_xx_0
+  id: digital_chunks_to_symbols_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    dimension: '1'
+    in_type: byte
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_ports: '1'
+    out_type: complex
+    symbol_table: '[-1-1j,-1+1j,1-1j,1+1j]'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [408, 128.0]
+    rotation: 0
+    state: true
+- name: digital_glfsr_source_x_0
+  id: digital_glfsr_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    degree: '16'
+    mask: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    repeat: 'True'
+    seed: '1'
+    type: byte
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [16, 188.0]
+    rotation: 0
+    state: true
+- name: digital_ofdm_carrier_allocator_cvc_0
+  id: digital_ofdm_carrier_allocator_cvc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    fft_len: fft_len
+    len_tag_key: '"packet_len"'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    occupied_carriers: '[list(range(-16,0)) + list(range(1, 17))]'
+    output_is_shifted: 'True'
+    pilot_carriers: '[[-(ncarrier+1),(ncarrier+1)]]'
+    pilot_symbols: '[[1,1]] '
+    sync_words: ()
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [392, 332.0]
+    rotation: 0
+    state: true
+- name: digital_ofdm_cyclic_prefixer_0
+  id: digital_ofdm_cyclic_prefixer
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    cp_len: int(fft_len/8)
+    input_size: fft_len
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    rolloff: '0'
+    tagname: '"packet_len"'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [928, 340.0]
+    rotation: 0
+    state: true
+- name: fft_vxx_0
+  id: fft_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    fft_size: '128'
+    forward: 'False'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    nthreads: '1'
+    shift: 'True'
+    type: complex
+    window: window.blackmanharris(128)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [664, 348.0]
+    rotation: 0
+    state: enabled
+- name: iio_pluto_sink_0
+  id: iio_pluto_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    attenuation1: '10.0'
+    auto_filter: 'True'
+    bandwidth: '20000000'
+    buffer_size: '32768'
+    comment: ''
+    cyclic: 'False'
+    filter: ''
+    frequency: '2400000000'
+    samplerate: samp_rate
+    uri: uri
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1192, 212.0]
+    rotation: 0
+    state: disabled
+- name: import_0
+  id: import
+  parameters:
+    alias: ''
+    comment: ''
+    imports: import numpy as np
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [688, 12.0]
+    rotation: 0
+    state: true
+- name: qtgui_sink_x_0
+  id: qtgui_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    bw: samp_rate
+    comment: ''
+    fc: '0'
+    fftsize: '1024'
+    gui_hint: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: Tx
+    plotconst: 'True'
+    plotfreq: 'True'
+    plottime: 'True'
+    plotwaterfall: 'True'
+    rate: '10'
+    showports: 'False'
+    showrf: 'True'
+    type: complex
+    wintype: firdes.WIN_HAMMING
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1192, 84.0]
+    rotation: 0
+    state: true
+- name: uri
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: URI
+    short_id: ''
+    type: str
+    value: ip:192.168.2.1
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [552, 12.0]
+    rotation: 0
+    state: enabled
+
+connections:
+- [blocks_repack_bits_bb_0, '0', digital_chunks_to_symbols_xx_0, '0']
+- [blocks_stream_to_tagged_stream_0, '0', digital_ofdm_carrier_allocator_cvc_0, '0']
+- [digital_chunks_to_symbols_xx_0, '0', blocks_stream_to_tagged_stream_0, '0']
+- [digital_glfsr_source_x_0, '0', blocks_repack_bits_bb_0, '0']
+- [digital_ofdm_carrier_allocator_cvc_0, '0', fft_vxx_0, '0']
+- [digital_ofdm_cyclic_prefixer_0, '0', iio_pluto_sink_0, '0']
+- [digital_ofdm_cyclic_prefixer_0, '0', qtgui_sink_x_0, '0']
+- [fft_vxx_0, '0', digital_ofdm_cyclic_prefixer_0, '0']
+
+metadata:
+  file_format: 1
