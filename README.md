@@ -81,4 +81,14 @@ P.S. If you have more than one sampling rate, try each one and see what is the d
 2. Run the file or press F5. It will open the real time FM station (in my case i configure to receive 100.1 MHz station, Halifax, NS, Canada). You can see real time waterfall of FM Station and also can hear the sound too. If you have problem with audio change sampling rate accordingly. 
 
  <img src="FMReceiverPluto/images/FMwaterfall.PNG">
+ 
+ **Update:** Time sink added to the flowgraph.
+ 
+1. You can download the files from source folder or [here](https://raw.githubusercontent.com/patel999jay/ADALM-Pluto-File-Transfer/master/FMReceiverPluto/images/PlutoSDR_FMRadio3.7_v1.grc).
+ 
+ <img src="FMReceiverPluto/images/PlutoSDR_FMRadio3.7_v1.grc.png">
+ 
+2. Run the file or press F5.
+
+ <img src="FMReceiverPluto/images/PlutoSDR_FMRadio3.7_v1.PNG.jpg">
 
