@@ -1,6 +1,6 @@
-# ADM-Pluto-File-Transfer & FM Receiver PlutoSDR
+# ADALM-Pluto-File-Transfer & FM Receiver PlutoSDR
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
-File Transfer Example with ADM Pluto SDR
+**File Transfer Example with ADALM Pluto SDR**
 
 Author : Jay Patel , Dalhousie University, NS, Canada.
 
